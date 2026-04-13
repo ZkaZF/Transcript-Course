@@ -1,0 +1,316 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+/* ============ DESIGN SYSTEM ============ */
+/* Crimson Dark + Orange Accent — merah elegan dengan aksen oranye */
+
+@theme {
+  /* Primary: Teal */
+  --color-primary-50:  #f0fdfa;
+  --color-primary-100: #ccfbf1;
+  --color-primary-200: #99f6e4;
+  --color-primary-300: #5eead4;
+  --color-primary-400: #2dd4bf;
+  --color-primary-500: #14b8a6;
+  --color-primary-600: #0d9488;
+  --color-primary-700: #0f766e;
+  --color-primary-800: #115e59;
+  --color-primary-900: #134e4a;
+
+  /* Accent: Orange (CTA, highlights) */
+  --color-accent-300: #fdba74;
+  --color-accent-400: #fb923c;
+  --color-accent-500: #f97316;
+  --color-accent-600: #ea580c;
+
+  /* Surface: Cool Dark (slate dengan tint teal) */
+  --color-surface-50:  #f0fdfa;
+  --color-surface-100: #e0f2f1;
+  --color-surface-200: #b2dfdb;
+  --color-surface-300: #80cbc4;
+  --color-surface-400: #4db6ac;
+  --color-surface-500: #5a7a78;
+  --color-surface-600: #3d5c5a;
+  --color-surface-700: #2a3f3e;
+  --color-surface-800: #1a2a29;
+  --color-surface-900: #0f1e1d;
+  --color-surface-950: #070e0e;
+
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* ============ BASE STYLES ============ */
+
+body {
+  @apply bg-surface-950 text-surface-100 font-sans antialiased;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ============ LIGHT MODE ============ */
+/* Menggunakan warna netral (bukan teal) agar kontras jelas */
+
+.light body {
+  background-color: #f8fafb;
+  color: #1a2332;
+}
+
+/* Backgrounds: dark → light neutral */
+.light .bg-surface-950 {
+  background-color: #f1f5f5;
+}
+
+.light .bg-surface-900\/50,
+.light .bg-surface-900\/30,
+.light .bg-surface-900\/70,
+.light .bg-surface-900\/20 {
+  background-color: #ffffff;
+}
+
+.light .bg-surface-900 {
+  background-color: #ffffff;
+}
+
+.light .bg-surface-800\/50,
+.light .bg-surface-800\/80,
+.light .bg-surface-800\/30,
+.light .bg-surface-800\/60,
+.light .bg-surface-800\/40,
+.light .bg-surface-800 {
+  background-color: #f1f5f5;
+}
+
+.light .bg-surface-700 {
+  background-color: #e2e8ec;
+}
+
+/* Borders: more visible in light */
+.light .border-surface-800,
+.light .border-surface-700,
+.light .border-surface-700\/50,
+.light .border-surface-700\/40,
+.light .border-surface-700\/30 {
+  border-color: #dce4e8;
+}
+
+/* Text: proper contrast hierarchy */
+.light .text-surface-100,
+.light .text-surface-50 {
+  color: #111b27;
+}
+
+.light .text-surface-200 {
+  color: #1e2d3d;
+}
+
+.light .text-surface-300 {
+  color: #334155;
+}
+
+.light .text-surface-400 {
+  color: #64748b;
+}
+
+.light .text-surface-500 {
+  color: #94a3b8;
+}
+
+.light .text-surface-600 {
+  color: #b0bec5;
+}
+
+/* Hover states */
+.light .hover\:text-surface-200:hover,
+.light .hover\:text-surface-100:hover {
+  color: #111b27;
+}
+
+.light .hover\:bg-surface-800:hover,
+.light .hover\:bg-surface-800\/50:hover,
+.light .hover\:bg-surface-800\/40:hover,
+.light .hover\:bg-surface-800\/30:hover {
+  background-color: #e8eef2;
+}
+
+.light .placeholder-surface-500::placeholder {
+  color: #94a3b8;
+}
+
+/* Primary colors in light — make them slightly deeper for contrast */
+.light .text-primary-400 {
+  color: #0d9488;
+}
+
+.light .text-primary-300 {
+  color: #0f766e;
+}
+
+.light .bg-primary-500\/10,
+.light .bg-primary-500\/15,
+.light .bg-primary-500\/20 {
+  background-color: rgba(13, 148, 136, 0.1);
+}
+
+/* ============ SCROLLBAR ============ */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-surface-900;
+}
+
+.light ::-webkit-scrollbar-track {
+  background-color: var(--color-surface-100);
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-surface-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-surface-500;
+}
+
+/* ============ RESPONSIVE ============ */
+
+@media (max-width: 768px) {
+  .sidebar-desktop {
+    display: none;
+  }
+}
+
+/* ============ ANIMATIONS ============ */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+/* ============ PREMIUM CARD EFFECTS ============ */
+
+/* Animated gradient border */
+@keyframes borderRotate {
+  0% { --angle: 0deg; }
+  100% { --angle: 360deg; }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.card-glow {
+  position: relative;
+}
+
+.card-glow::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--angle),
+    transparent 40%,
+    #0d9488 50%,
+    #f97316 60%,
+    transparent 70%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: borderRotate 4s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-glow:hover::before {
+  opacity: 1;
+}
+
+/* Shimmer overlay */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.card-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255,255,255,0.03) 45%,
+    rgba(255,255,255,0.06) 50%,
+    rgba(255,255,255,0.03) 55%,
+    transparent 60%
+  );
+  animation: shimmer 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Mesh gradient for featured card */
+@keyframes meshFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 15px) scale(0.95); }
+}
+
+.mesh-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: meshFloat 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Stagger animation */
+@keyframes staggerIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.stagger-item {
+  opacity: 0;
+  animation: staggerIn 0.5s ease-out forwards;
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0.05s; }
+.stagger-item:nth-child(2) { animation-delay: 0.1s; }
+.stagger-item:nth-child(3) { animation-delay: 0.15s; }
+.stagger-item:nth-child(4) { animation-delay: 0.2s; }
+.stagger-item:nth-child(5) { animation-delay: 0.25s; }
+.stagger-item:nth-child(6) { animation-delay: 0.3s; }
+.stagger-item:nth-child(7) { animation-delay: 0.35s; }
+.stagger-item:nth-child(8) { animation-delay: 0.4s; }
