@@ -1,0 +1,17 @@
+# Internal planning & documentation (tidak perlu publik)
+PLANNING.md
+PROJECT_DESCRIPTION.md
+
+# File audio test
+backend/test_audio.wav
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Agent files
+.agent/

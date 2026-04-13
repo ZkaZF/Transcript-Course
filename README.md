@@ -1,5 +1,12 @@
 # Transcript Online Course
 
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688?logo=fastapi&logoColor=white)
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white)
+![Whisper](https://img.shields.io/badge/Whisper-AI-412991?logo=openai&logoColor=white)
+![License](https://img.shields.io/badge/License-Personal-lightgrey)
+
 Web app personal untuk **merekam & mentranskrip kuliah online**, menghasilkan **rangkuman AI**, dan **tanya jawab** tentang materi — **100% gratis**.
 
 ## Fitur
@@ -44,7 +51,8 @@ ffmpeg -version     # FFmpeg installed
 
 ### 1. Clone / Download Project
 ```bash
-cd transcript-online-course
+git clone https://github.com/ZkaZF/Transcript-Course.git
+cd Transcript-Course
 ```
 
 ### 2. Setup Backend
